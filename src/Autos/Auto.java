@@ -10,14 +10,20 @@ class Auto {
     private String color;
     private int fabricacion;
     private boolean velocidadCrucero;
+
     /**
      * contructor Auto
      */
-    public Auto(){};
+    public Auto() {
+    }
+
+    ;
+
     /**
-     *contructor de la clase Electrodosmiestico
+     * contructor de la clase Electrodosmiestico
+     *
      * @param numeroSerie peso del objecto Electrodomestico a crear
-     * @param marca precio del Electrodomestico a crear
+     * @param marca       precio del Electrodomestico a crear
      */
     public Auto(int numeroSerie, String marca) {
         this.numeroSerie = numeroSerie;
@@ -25,11 +31,10 @@ class Auto {
     }
 
     /**
-     *
-     * @param numeroSerie del objeto a crear
-     * @param marca del objeto a crear
-     * @param color del objeto a crear
-     * @param fabricacion del objeto a crear
+     * @param numeroSerie      del objeto a crear
+     * @param marca            del objeto a crear
+     * @param color            del objeto a crear
+     * @param fabricacion      del objeto a crear
      * @param velocidadCrucero del objeto a crear
      */
     public Auto(int numeroSerie, String marca, String color, int fabricacion, boolean velocidadCrucero) {
@@ -41,7 +46,6 @@ class Auto {
     }
 
     /**
-     *
      * @return devuleve numero de serie, color, marca, fabricacion, velocidad crucero
      */
 
@@ -103,7 +107,7 @@ class Auto {
                 valorDeFabricacion = 10 * fabricacion;
                 break;
             case "Volkswagen":
-                valorDeFabricacion =  9 * fabricacion;
+                valorDeFabricacion = 9 * fabricacion;
                 break;
             case "Hyundai":
                 valorDeFabricacion = 8 * fabricacion;

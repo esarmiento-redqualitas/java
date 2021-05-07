@@ -152,13 +152,13 @@ public class Main {
             System.out.println("Detalles de los autos");
             for (int i = 0; i < auto.length; i++) {
                 System.out.println("---------------------------------------------------------------------------");
-                System.out.println("Datos del auto # " + i + 1);
+                System.out.println("Datos del auto # " + (i+1));
                 System.out.println("numero de serie " + auto[i].getNumeroSerie());
-                System.out.println("Marca" + auto[i].getMarca());
-                System.out.println("Color" + auto[i].getColor());
-                System.out.println("Fabricacion" + auto[i].getFabricacion());
-                System.out.println("Velocidad crucero" + auto[i].getvelocidadCrucero());
-                System.out.println("Precio auto" + auto[i].calcularPrecio());
+                System.out.println("Marca " + auto[i].getMarca());
+                System.out.println("Color " + auto[i].getColor());
+                System.out.println("Fabricacion " + auto[i].getFabricacion());
+                System.out.println("Velocidad crucero " + auto[i].getvelocidadCrucero());
+                System.out.println("Precio auto " + auto[i].calcularPrecio());
                 System.out.println("---------------------------------------------------------------------------");
             }
 /**
