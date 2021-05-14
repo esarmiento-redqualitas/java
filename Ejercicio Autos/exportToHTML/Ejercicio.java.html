@@ -1,0 +1,517 @@
+<html>
+<head>
+<title>Ejercicio.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Ejercicio.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Ejercicio {</span>
+
+   <span class="s0">public static </span><span class="s1">ArrayList&lt;Auto&gt; creacionAutos() {</span>
+
+        <span class="s1">Scanner scan = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+        <span class="s1">ArrayList&lt;Auto&gt; autos = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Auto&gt;()</span><span class="s0">;</span>
+
+        <span class="s0">int </span><span class="s1">numeroSerie</span><span class="s0">;</span>
+        <span class="s0">int </span><span class="s1">fabricacion</span><span class="s0">;</span>
+        <span class="s1">String color</span><span class="s0">;</span>
+        <span class="s1">String marca</span><span class="s0">;</span>
+        <span class="s0">boolean </span><span class="s1">velocidadCrucero</span><span class="s0">;</span>
+
+        <span class="s2">/** Instancia auto 1 **/</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese los valores para auto numero 1: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s4">//Ingreso de numero de serie</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar numero de serie: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">String userIn1 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn1.length() &lt; </span><span class="s5">5</span><span class="s1">){</span>
+            <span class="s1">numeroSerie = Integer.parseInt(userIn1)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El numero de serie no puede exceder los 4 caratectes numericos.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s4">//Ingreso de año de fabricacion</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar año de fabricacion: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">String userIn2 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn2.matches(</span><span class="s3">&quot;^[1]+[9]+[9]+[0-9]$&quot;</span><span class="s1">) || userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[0-2]+[0-9]$&quot;</span><span class="s1">)</span>
+                <span class="s1">&amp;&amp; !userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[2]+[2-9]$&quot;</span><span class="s1">)){</span>
+            <span class="s1">fabricacion = Integer.parseInt(userIn2)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El año de fabricacion debe ser entre 1990 y año actual.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s4">//Ingreso de color</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de colores disponibles para su vehiculo: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Rojo </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Azul </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Negro </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Blanco </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Plateado&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese un color correspondiente a la lista anterior: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">String userIn3 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Rojo&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Azul&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Negro&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Blanco&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Plateado&quot;</span><span class="s1">)) {</span>
+            <span class="s1">color = userIn3.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn3.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los colores brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s4">//Ingreso de modelo</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de modelos vehiculo disponibles: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Kia </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Citroen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Volkswagen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Hyundai </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chevrolet </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Peugeot </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Fiat </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Suzuki </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Renault </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chery&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese la marca de vehiculo deseada: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">String userIn4 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Kia&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Citroen&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Volkswagen&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Hyundai&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chevrolet&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Peugeot&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Fiat&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Suzuki&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Renault&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chery&quot;</span><span class="s1">)) {</span>
+            <span class="s1">marca = userIn4.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn4.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los modelos brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s4">//Confimacion de velocidad crucero</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Es velocidad crucero? &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">String userIn5 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;Si&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">true;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;No&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">false;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los valores 'Si' o 'No'&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Auto auto = </span><span class="s0">new </span><span class="s1">Auto(numeroSerie</span><span class="s0">,</span><span class="s1">marca</span><span class="s0">,</span><span class="s1">color</span><span class="s0">,</span><span class="s1">fabricacion</span><span class="s0">,</span><span class="s1">velocidadCrucero)</span><span class="s0">;</span>
+
+        <span class="s1">autos.add(auto)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese los valores para auto numero 2: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar numero de serie: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn1 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn1.length() &lt; </span><span class="s5">5</span><span class="s1">){</span>
+            <span class="s1">numeroSerie = Integer.parseInt(userIn1)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El numero de serie no puede exceder los 4 caratectes numericos.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar año de fabricacion: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn2 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn2.matches(</span><span class="s3">&quot;^[1]+[9]+[9]+[0-9]$&quot;</span><span class="s1">) || userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[0-2]+[0-9]$&quot;</span><span class="s1">)</span>
+                <span class="s1">&amp;&amp; !userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[2]+[2-9]$&quot;</span><span class="s1">)){</span>
+            <span class="s1">fabricacion = Integer.parseInt(userIn2)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El año de fabricacion debe ser entre 1990 y año actual.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de colores disponibles para su vehiculo: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Rojo </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Azul </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Negro </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Blanco </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Plateado&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese un color correspondiente a la lista anterior: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn3 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Rojo&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Azul&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Negro&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Blanco&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Plateado&quot;</span><span class="s1">)) {</span>
+            <span class="s1">color = userIn3.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn3.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los colores brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de modelos vehiculo disponibles: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Kia </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Citroen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Volkswagen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Hyundai </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chevrolet </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Peugeot </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Fiat </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Suzuki </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Renault </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chery&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese la marca de vehiculo deseada: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn4 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Kia&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Citroen&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Volkswagen&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Hyundai&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chevrolet&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Peugeot&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Fiat&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Suzuki&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Renault&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chery&quot;</span><span class="s1">)) {</span>
+            <span class="s1">marca = userIn4.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn4.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los modelos brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Es velocidad crucero? &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">userIn5 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;Si&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">true;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;No&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">false;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los valores 'Si' o 'No'&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Auto auto2 = </span><span class="s0">new </span><span class="s1">Auto(numeroSerie</span><span class="s0">,</span><span class="s1">marca</span><span class="s0">,</span><span class="s1">color</span><span class="s0">,</span><span class="s1">fabricacion</span><span class="s0">,</span><span class="s1">velocidadCrucero)</span><span class="s0">;</span>
+
+        <span class="s1">autos.add(auto2)</span><span class="s0">;</span>
+
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese los valores para auto numero 3: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar numero de serie: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn1 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn1.length() &lt; </span><span class="s5">5</span><span class="s1">){</span>
+            <span class="s1">numeroSerie = Integer.parseInt(userIn1)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El numero de serie no puede exceder los 4 caratectes numericos.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar año de fabricacion: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn2 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn2.matches(</span><span class="s3">&quot;^[1]+[9]+[9]+[0-9]$&quot;</span><span class="s1">) || userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[0-2]+[0-9]$&quot;</span><span class="s1">)</span>
+                <span class="s1">&amp;&amp; !userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[2]+[2-9]$&quot;</span><span class="s1">)){</span>
+            <span class="s1">fabricacion = Integer.parseInt(userIn2)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El año de fabricacion debe ser entre 1990 y año actual.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de colores disponibles para su vehiculo: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Rojo </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Azul </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Negro </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Blanco </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Plateado&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese un color correspondiente a la lista anterior: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn3 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Rojo&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Azul&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Negro&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Blanco&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Plateado&quot;</span><span class="s1">)) {</span>
+            <span class="s1">color = userIn3.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn3.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los colores brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de modelos vehiculo disponibles: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Kia </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Citroen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Volkswagen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Hyundai </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chevrolet </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Peugeot </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Fiat </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Suzuki </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Renault </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chery&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese la marca de vehiculo deseada: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn4 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Kia&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Citroen&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Volkswagen&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Hyundai&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chevrolet&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Peugeot&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Fiat&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Suzuki&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Renault&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chery&quot;</span><span class="s1">)) {</span>
+            <span class="s1">marca = userIn4.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn4.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los modelos brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Es velocidad crucero? &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">userIn5 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;Si&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">true;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;No&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">false;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los valores 'Si' o 'No'&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Auto auto3 = </span><span class="s0">new </span><span class="s1">Auto(numeroSerie</span><span class="s0">,</span><span class="s1">marca</span><span class="s0">,</span><span class="s1">color</span><span class="s0">,</span><span class="s1">fabricacion</span><span class="s0">,</span><span class="s1">velocidadCrucero)</span><span class="s0">;</span>
+
+        <span class="s1">autos.add(auto3)</span><span class="s0">;</span>
+
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese los valores para auto numero 4: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar numero de serie: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn1 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn1.length() &lt; </span><span class="s5">5</span><span class="s1">){</span>
+            <span class="s1">numeroSerie = Integer.parseInt(userIn1)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El numero de serie no puede exceder los 4 caratectes numericos.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar año de fabricacion: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn2 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn2.matches(</span><span class="s3">&quot;^[1]+[9]+[9]+[0-9]$&quot;</span><span class="s1">) || userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[0-2]+[0-9]$&quot;</span><span class="s1">)</span>
+                <span class="s1">&amp;&amp; !userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[2]+[2-9]$&quot;</span><span class="s1">)){</span>
+            <span class="s1">fabricacion = Integer.parseInt(userIn2)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El año de fabricacion debe ser entre 1990 y año actual.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de colores disponibles para su vehiculo: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Rojo </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Azul </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Negro </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Blanco </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Plateado&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese un color correspondiente a la lista anterior: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn3 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Rojo&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Azul&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Negro&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Blanco&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Plateado&quot;</span><span class="s1">)) {</span>
+            <span class="s1">color = userIn3.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn3.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los colores brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de modelos vehiculo disponibles: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Kia </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Citroen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Volkswagen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Hyundai </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chevrolet </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Peugeot </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Fiat </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Suzuki </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Renault </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chery&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese la marca de vehiculo deseada: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn4 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Kia&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Citroen&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Volkswagen&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Hyundai&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chevrolet&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Peugeot&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Fiat&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Suzuki&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Renault&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chery&quot;</span><span class="s1">)) {</span>
+            <span class="s1">marca = userIn4.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn4.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los modelos brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Es velocidad crucero? &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">userIn5 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;Si&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">true;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;No&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">false;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los valores 'Si' o 'No'&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Auto auto4 = </span><span class="s0">new </span><span class="s1">Auto(numeroSerie</span><span class="s0">,</span><span class="s1">marca</span><span class="s0">,</span><span class="s1">color</span><span class="s0">,</span><span class="s1">fabricacion</span><span class="s0">,</span><span class="s1">velocidadCrucero)</span><span class="s0">;</span>
+
+        <span class="s1">autos.add(auto4)</span><span class="s0">;</span>
+
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese los valores para auto numero 5: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar numero de serie: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn1 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn1.length() &lt; </span><span class="s5">5</span><span class="s1">){</span>
+            <span class="s1">numeroSerie = Integer.parseInt(userIn1)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El numero de serie no puede exceder los 4 caratectes numericos.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingresar año de fabricacion: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn2 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(userIn2.matches(</span><span class="s3">&quot;^[1]+[9]+[9]+[0-9]$&quot;</span><span class="s1">) || userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[0-2]+[0-9]$&quot;</span><span class="s1">)</span>
+                <span class="s1">&amp;&amp; !userIn2.matches(</span><span class="s3">&quot;^[2]+[0]+[2]+[2-9]$&quot;</span><span class="s1">)){</span>
+            <span class="s1">fabricacion = Integer.parseInt(userIn2)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;El año de fabricacion debe ser entre 1990 y año actual.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de colores disponibles para su vehiculo: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Rojo </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Azul </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Negro </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Blanco </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Plateado&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese un color correspondiente a la lista anterior: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn3 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Rojo&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Azul&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Negro&quot;</span><span class="s1">) || userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Blanco&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn3.equalsIgnoreCase(</span><span class="s3">&quot;Plateado&quot;</span><span class="s1">)) {</span>
+            <span class="s1">color = userIn3.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn3.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los colores brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;A continuacion se le brindara una lista de modelos vehiculo disponibles: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;-Kia </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Citroen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Volkswagen </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Hyundai </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chevrolet </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Peugeot </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Fiat </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Suzuki </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Renault </span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                <span class="s3">&quot;-Chery&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Ingrese la marca de vehiculo deseada: &quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">userIn4 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Kia&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Citroen&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Volkswagen&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Hyundai&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chevrolet&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Peugeot&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Fiat&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Suzuki&quot;</span><span class="s1">)</span>
+                <span class="s1">|| userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Renault&quot;</span><span class="s1">) || userIn4.equalsIgnoreCase(</span><span class="s3">&quot;Chery&quot;</span><span class="s1">)) {</span>
+            <span class="s1">marca = userIn4.substring(</span><span class="s5">0</span><span class="s0">, </span><span class="s5">1</span><span class="s1">).toUpperCase() + userIn4.substring(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los modelos brindados en la lista.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Es velocidad crucero? &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">userIn5 = scan.nextLine()</span><span class="s0">;</span>
+
+        <span class="s0">if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;Si&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">true;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(userIn5.equalsIgnoreCase(</span><span class="s3">&quot;No&quot;</span><span class="s1">)) {</span>
+            <span class="s1">velocidadCrucero = </span><span class="s0">false;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s0">throw new </span><span class="s1">NullPointerException(</span><span class="s3">&quot;Solo se aceptan los valores 'Si' o 'No'&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Auto auto5 = </span><span class="s0">new </span><span class="s1">Auto(numeroSerie</span><span class="s0">,</span><span class="s1">marca</span><span class="s0">,</span><span class="s1">color</span><span class="s0">,</span><span class="s1">fabricacion</span><span class="s0">,</span><span class="s1">velocidadCrucero)</span><span class="s0">;</span>
+
+        <span class="s1">autos.add(auto5)</span><span class="s0">;</span>
+
+    <span class="s0">return </span><span class="s1">autos</span><span class="s0">;</span>
+   <span class="s1">}</span>
+
+   <span class="s0">public static void </span><span class="s1">imprimirAutos(ArrayList&lt;Auto&gt; listaAutos) {</span>
+
+       <span class="s0">int </span><span class="s1">counter = </span><span class="s5">1</span><span class="s0">;</span>
+
+       <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i= </span><span class="s5">0</span><span class="s0">; </span><span class="s1">i &lt; listaAutos.size()</span><span class="s0">;</span><span class="s1">i++) {</span>
+
+           <span class="s1">String crucero = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span>
+
+           <span class="s0">if </span><span class="s1">(listaAutos.get(i).getVelocidadCrucero()){</span>
+               <span class="s1">crucero = </span><span class="s3">&quot;Si&quot;</span><span class="s0">;</span>
+           <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+               <span class="s1">crucero = </span><span class="s3">&quot;No&quot;</span><span class="s0">;           </span><span class="s1">}</span>
+
+           <span class="s1">System.out.println(</span><span class="s3">&quot;Datos de Auto #&quot; </span><span class="s1">+ counter + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                   <span class="s3">&quot;Numero de serie: &quot; </span><span class="s1">+ listaAutos.get(i).getNumeroSerie() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                   <span class="s3">&quot;Año de fabricacion: &quot; </span><span class="s1">+ listaAutos.get(i).getFabricacion() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                   <span class="s3">&quot;Color de vehiculo: &quot; </span><span class="s1">+ listaAutos.get(i).getColor() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                   <span class="s3">&quot;Marca de vehiculo: &quot; </span><span class="s1">+ listaAutos.get(i).getMarca() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+</span>
+                   <span class="s3">&quot;Velocidad crucero?: &quot; </span><span class="s1">+ crucero + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+           <span class="s1">counter++</span><span class="s0">;</span>
+       <span class="s1">}</span>
+   <span class="s1">}</span>
+
+   <span class="s0">public static void </span><span class="s1">precioAutos(ArrayList&lt;Auto&gt; listaAutos) {</span>
+
+       <span class="s0">int </span><span class="s1">counter = </span><span class="s5">1</span><span class="s0">;</span>
+       <span class="s0">double </span><span class="s1">precioTotal = </span><span class="s5">0 </span><span class="s0">;</span>
+
+       <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i=</span><span class="s5">0</span><span class="s0">; </span><span class="s1">i &lt; listaAutos.size()</span><span class="s0">;</span><span class="s1">i++) {</span>
+           <span class="s1">System.out.println(</span><span class="s3">&quot;Precio de Auto #&quot; </span><span class="s1">+ counter + </span><span class="s3">&quot;: &quot; </span><span class="s1">+ listaAutos.get(i).precioAuto() + </span><span class="s3">&quot; USD&quot;</span><span class="s1">)</span><span class="s0">;</span>
+           <span class="s1">precioTotal = precioTotal + listaAutos.get(i).precioAuto()</span><span class="s0">;</span>
+           <span class="s1">counter++</span><span class="s0">;</span>
+       <span class="s1">}</span>
+       <span class="s1">System.out.println(</span><span class="s3">&quot;Precio Total: &quot; </span><span class="s1">+ precioTotal + </span><span class="s3">&quot; USD&quot;</span><span class="s1">)</span><span class="s0">;</span>
+   <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+       <span class="s1">ArrayList&lt;Auto&gt; listaAutos = </span><span class="s0">new </span><span class="s1">ArrayList&lt;Auto&gt;(Ejercicio.creacionAutos())</span><span class="s0">;</span>
+       <span class="s1">Ejercicio.imprimirAutos(listaAutos)</span><span class="s0">;</span>
+       <span class="s1">Ejercicio.precioAutos(listaAutos)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
